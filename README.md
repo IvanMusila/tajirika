@@ -1,0 +1,1 @@
+# icsproject-ai-spending-optimisation
