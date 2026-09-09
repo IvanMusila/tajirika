@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pkl
+*.pt
+.env
+venv/
+
+# Flutter
+app/.dart_tool/
+app/build/
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+
+# PostgreSQL
+*.sql.backup
+
+# Misc
+.DS_Store
+*.log
