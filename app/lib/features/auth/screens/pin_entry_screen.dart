@@ -3,9 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_text_styles.dart';
+import '../../../shared/widgets/pin_keypad.dart';
 import '../providers/auth_provider.dart';
 import '../../../router/app_router.dart';
-import '../../../shared/widgets/pin_keypad.dart';
 
 class PinEntryScreen extends ConsumerStatefulWidget {
   const PinEntryScreen({super.key});
@@ -25,9 +25,7 @@ class _PinEntryScreenState extends ConsumerState<PinEntryScreen> {
         _pin += digit;
         _errorMessage = '';
       });
-      if (_pin.length == 4) {
-        _validatePin();
-      }
+      if (_pin.length == 4) _validatePin();
     }
   }
 
@@ -64,22 +62,29 @@ class _PinEntryScreenState extends ConsumerState<PinEntryScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 32),
           child: Column(
             children: [
-              const SizedBox(height: 64),
+              const SizedBox(height: 56),
 
-              // Logo
               Container(
                 width: 72,
                 height: 72,
                 decoration: BoxDecoration(
                   color: AppColors.surface,
                   borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.shadow,
+                      blurRadius: 16,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
                 ),
                 child: const Icon(
-                  Icons.trending_up,
+                  Icons.trending_up_rounded,
                   color: AppColors.primary,
-                  size: 36,
+                  size: 32,
                 ),
               ),
+
               const SizedBox(height: 32),
 
               Text('Welcome back', style: AppTextStyles.headingLarge),
@@ -89,21 +94,30 @@ class _PinEntryScreenState extends ConsumerState<PinEntryScreen> {
                 style: AppTextStyles.bodyMedium,
               ),
 
-              const SizedBox(height: 48),
+              const SizedBox(height: 52),
 
               // PIN dots
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(4, (index) {
-                  return Container(
+                  final filled = index < _pin.length;
+                  return AnimatedContainer(
+                    duration: const Duration(milliseconds: 200),
                     margin: const EdgeInsets.symmetric(horizontal: 10),
-                    width: 18,
-                    height: 18,
+                    width: filled ? 20 : 16,
+                    height: filled ? 20 : 16,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: index < _pin.length
-                          ? AppColors.pinFilled
-                          : AppColors.pinEmpty,
+                      color:
+                          filled ? AppColors.pinFilled : AppColors.pinEmpty,
+                      boxShadow: filled
+                          ? [
+                              BoxShadow(
+                                color: AppColors.primary.withOpacity(0.3),
+                                blurRadius: 8,
+                              )
+                            ]
+                          : null,
                     ),
                   );
                 }),
@@ -121,7 +135,10 @@ class _PinEntryScreenState extends ConsumerState<PinEntryScreen> {
 
               const Spacer(),
 
-              PinKeypad(onKeyTap: _onKeyTap, onDelete: _onDelete),
+              PinKeypad(
+                onKeyTap: _onKeyTap,
+                onDelete: _onDelete,
+              ),
 
               const SizedBox(height: 32),
             ],

@@ -3,9 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_text_styles.dart';
+import '../../../shared/widgets/pin_keypad.dart';
 import '../providers/auth_provider.dart';
 import '../../../router/app_router.dart';
-import '../../../shared/widgets/pin_keypad.dart';
 
 class PinSetupScreen extends ConsumerStatefulWidget {
   const PinSetupScreen({super.key});
@@ -27,7 +27,6 @@ class _PinSetupScreenState extends ConsumerState<PinSetupScreen> {
         if (_pin.length < 4) {
           _pin += digit;
           if (_pin.length == 4) {
-            // Move to confirm step
             Future.delayed(const Duration(milliseconds: 300), () {
               setState(() => _isConfirming = true);
             });
@@ -36,9 +35,7 @@ class _PinSetupScreenState extends ConsumerState<PinSetupScreen> {
       } else {
         if (_confirmPin.length < 4) {
           _confirmPin += digit;
-          if (_confirmPin.length == 4) {
-            _validateAndSave();
-          }
+          if (_confirmPin.length == 4) _validateAndSave();
         }
       }
     });
@@ -84,7 +81,7 @@ class _PinSetupScreenState extends ConsumerState<PinSetupScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 32),
           child: Column(
             children: [
-              const SizedBox(height: 64),
+              const SizedBox(height: 56),
 
               // Icon
               Container(
@@ -93,16 +90,23 @@ class _PinSetupScreenState extends ConsumerState<PinSetupScreen> {
                 decoration: BoxDecoration(
                   color: AppColors.surface,
                   borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.shadow,
+                      blurRadius: 16,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
                 ),
                 child: const Icon(
-                  Icons.lock_outline,
+                  Icons.lock_outline_rounded,
                   color: AppColors.primary,
-                  size: 36,
+                  size: 32,
                 ),
               ),
+
               const SizedBox(height: 32),
 
-              // Title
               Text(
                 _isConfirming ? 'Confirm your PIN' : 'Create a PIN',
                 style: AppTextStyles.headingLarge,
@@ -116,21 +120,31 @@ class _PinSetupScreenState extends ConsumerState<PinSetupScreen> {
                 textAlign: TextAlign.center,
               ),
 
-              const SizedBox(height: 48),
+              const SizedBox(height: 52),
 
               // PIN dots
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(4, (index) {
-                  return Container(
+                  final filled = index < currentPin.length;
+                  return AnimatedContainer(
+                    duration: const Duration(milliseconds: 200),
                     margin: const EdgeInsets.symmetric(horizontal: 10),
-                    width: 18,
-                    height: 18,
+                    width: filled ? 20 : 16,
+                    height: filled ? 20 : 16,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: index < currentPin.length
+                      color: filled
                           ? AppColors.pinFilled
                           : AppColors.pinEmpty,
+                      boxShadow: filled
+                          ? [
+                              BoxShadow(
+                                color: AppColors.primary.withOpacity(0.3),
+                                blurRadius: 8,
+                              )
+                            ]
+                          : null,
                     ),
                   );
                 }),
@@ -138,7 +152,6 @@ class _PinSetupScreenState extends ConsumerState<PinSetupScreen> {
 
               const SizedBox(height: 16),
 
-              // Error message
               if (_errorMessage.isNotEmpty)
                 Text(
                   _errorMessage,
@@ -149,7 +162,6 @@ class _PinSetupScreenState extends ConsumerState<PinSetupScreen> {
 
               const Spacer(),
 
-              // Keypad
               PinKeypad(
                 onKeyTap: _onKeyTap,
                 onDelete: _onDelete,

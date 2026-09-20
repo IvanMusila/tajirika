@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_text_styles.dart';
 import '../../../core/services/storage_service.dart';
 import '../../../router/app_router.dart';
 
-class SplashScreen extends ConsumerStatefulWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  ConsumerState<SplashScreen> createState() => _SplashScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends ConsumerState<SplashScreen>
+class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _fadeAnimation;
@@ -22,33 +21,25 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
   @override
   void initState() {
     super.initState();
-
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 1500),
+      duration: const Duration(milliseconds: 5000),
       vsync: this,
     );
-
     _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeIn),
     );
-
-    _scaleAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(
+    _scaleAnimation = Tween<double>(begin: 0.85, end: 1.0).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeOutBack),
     );
-
     _controller.forward();
     _navigate();
   }
 
   Future<void> _navigate() async {
-    // Let animation play
-    await Future.delayed(const Duration(seconds: 2));
-
+    await Future.delayed(const Duration(milliseconds: 2200));
     if (!mounted) return;
-
     final onboarded = await StorageService.isOnboarded();
     final pinSet = await StorageService.isPinSet();
-
     if (!onboarded) {
       context.go(AppRoutes.onboarding);
     } else if (!pinSet) {
@@ -76,28 +67,31 @@ class _SplashScreenState extends ConsumerState<SplashScreen>
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Logo container
+                // Logo
                 Container(
-                  width: 100,
-                  height: 100,
+                  width: 96,
+                  height: 96,
                   decoration: BoxDecoration(
                     color: AppColors.primary,
                     borderRadius: BorderRadius.circular(28),
+                    boxShadow: [
+                      BoxShadow(
+                        color: AppColors.primary.withOpacity(0.3),
+                        blurRadius: 24,
+                        offset: const Offset(0, 8),
+                      ),
+                    ],
                   ),
-                  child: const Icon(
-                    Icons.trending_up,
-                    size: 56,
-                    color: Colors.white,
-                  ),
+                  // child: const Icon(
+                  //   Icons.trending_up_rounded,
+                  //   size: 52,
+                  //   color: Colors.white,
+                  // ),
                 ),
                 const SizedBox(height: 24),
                 Text(
                   'Tajirika',
-                  style: AppTextStyles.displayLarge.copyWith(
-                    color: AppColors.textPrimary,
-                    fontSize: 40,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppTextStyles.displayLarge.copyWith(fontSize: 36),
                 ),
                 const SizedBox(height: 8),
                 Text(

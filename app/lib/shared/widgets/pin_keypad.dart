@@ -7,6 +7,7 @@ class PinKeypad extends StatelessWidget {
   final VoidCallback onDelete;
 
   const PinKeypad({
+    super.key,
     required this.onKeyTap,
     required this.onDelete,
   });
@@ -17,17 +18,17 @@ class PinKeypad extends StatelessWidget {
       crossAxisCount: 3,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      childAspectRatio: 1.5,
+      childAspectRatio: 1.6,
       children: [
         ...['1', '2', '3', '4', '5', '6', '7', '8', '9'].map(
-          (digit) => KeypadButton(
+          (digit) => _KeypadButton(
             label: digit,
             onTap: () => onKeyTap(digit),
           ),
         ),
-        const SizedBox(), // empty bottom left
-        KeypadButton(label: '0', onTap: () => onKeyTap('0')),
-        KeypadButton(
+        const SizedBox(),
+        _KeypadButton(label: '0', onTap: () => onKeyTap('0')),
+        _KeypadButton(
           icon: Icons.backspace_outlined,
           onTap: onDelete,
         ),
@@ -42,6 +43,24 @@ class KeypadButton extends StatelessWidget {
   final VoidCallback onTap;
 
   const KeypadButton({
+    super.key,
+    this.label,
+    this.icon,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return _KeypadButton(label: label, icon: icon, onTap: onTap);
+  }
+}
+
+class _KeypadButton extends StatelessWidget {
+  final String? label;
+  final IconData? icon;
+  final VoidCallback onTap;
+
+  const _KeypadButton({
     this.label,
     this.icon,
     required this.onTap,
@@ -52,9 +71,10 @@ class KeypadButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(50),
+      splashColor: AppColors.primaryLight,
       child: Center(
         child: icon != null
-            ? Icon(icon, color: AppColors.textPrimary, size: 24)
+            ? Icon(icon, color: AppColors.textPrimary, size: 22)
             : Text(
                 label!,
                 style: AppTextStyles.headingLarge,
