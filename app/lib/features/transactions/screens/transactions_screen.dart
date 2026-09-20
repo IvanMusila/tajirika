@@ -23,7 +23,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
       'amount': -1200,
       'time': 'Today, 6:45 PM',
       'icon': Icons.shopping_cart_outlined,
-      'color': Color(0xFF8BC4A0),
+      'color': const Color(0xFF8BC4A0),
       'ref': 'BM76YXKL',
       'type': 'Pay Bill',
     },
@@ -33,7 +33,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
       'amount': -50,
       'time': 'Today, 8:12 AM',
       'icon': Icons.phone_android_outlined,
-      'color': Color(0xFF64B5F6),
+      'color': const Color(0xFF64B5F6),
       'ref': 'BI90XKPL',
       'type': 'Airtime',
     },
@@ -43,7 +43,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
       'amount': -2500,
       'time': 'Yesterday, 3:20 PM',
       'icon': Icons.person_outline_rounded,
-      'color': Color(0xFFFFB74D),
+      'color': const Color(0xFFFFB74D),
       'ref': 'BN23MKPL',
       'type': 'Send Money',
     },
@@ -53,7 +53,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
       'amount': -350,
       'time': 'Yesterday, 10:05 AM',
       'icon': Icons.directions_car_outlined,
-      'color': Color(0xFFBA68C8),
+      'color': const Color(0xFFBA68C8),
       'ref': 'BK44LXPQ',
       'type': 'Pay Bill',
     },
@@ -63,7 +63,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
       'amount': 45000,
       'time': 'Sep 1, 9:00 AM',
       'icon': Icons.account_balance_outlined,
-      'color': Color(0xFF4CAF7D),
+      'color': const Color(0xFF4CAF7D),
       'ref': 'BC11MNKL',
       'type': 'Received',
     },
@@ -73,7 +73,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
       'amount': -780,
       'time': 'Sep 18, 1:15 PM',
       'icon': Icons.coffee_outlined,
-      'color': Color(0xFFFF8A65),
+      'color': const Color(0xFFFF8A65),
       'ref': 'BX99QRST',
       'type': 'Pay Bill',
     },
@@ -83,7 +83,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
       'amount': -15000,
       'time': 'Sep 1, 7:00 AM',
       'icon': Icons.help_outline_rounded,
-      'color': Color(0xFF9E9E9E),
+      'color': const Color(0xFF9E9E9E),
       'ref': 'BZ01ABCD',
       'type': 'Send Money',
     },
@@ -136,11 +136,11 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                     decoration: BoxDecoration(
                       color: AppColors.surface,
                       borderRadius: BorderRadius.circular(14),
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           color: AppColors.shadow,
                           blurRadius: 8,
-                          offset: const Offset(0, 2),
+                          offset: Offset(0, 2),
                         ),
                       ],
                     ),
@@ -188,11 +188,11 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                                   ? AppColors.primary
                                   : AppColors.surface,
                               borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
+                              boxShadow: const [
                                 BoxShadow(
                                   color: AppColors.shadow,
                                   blurRadius: 6,
-                                  offset: const Offset(0, 2),
+                                  offset: Offset(0, 2),
                                 ),
                               ],
                             ),
@@ -224,7 +224,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.receipt_long_outlined,
                             size: 48,
                             color: AppColors.textHint,
@@ -278,11 +278,11 @@ class _TransactionItem extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadow,
             blurRadius: 8,
-            offset: const Offset(0, 2),
+            offset: Offset(0, 2),
           ),
         ],
       ),

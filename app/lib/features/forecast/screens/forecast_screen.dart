@@ -283,11 +283,11 @@ class _UpcomingBills extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadow,
             blurRadius: 12,
-            offset: const Offset(0, 4),
+            offset: Offset(0, 4),
           ),
         ],
       ),
@@ -350,7 +350,7 @@ class _UpcomingBills extends StatelessWidget {
                 ),
               ),
               if (!isLast)
-                Divider(
+                const Divider(
                     height: 1,
                     color: AppColors.background,
                     indent: 70),
@@ -373,11 +373,11 @@ class _ProjectionChart extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadow,
             blurRadius: 12,
-            offset: const Offset(0, 4),
+            offset: Offset(0, 4),
           ),
         ],
       ),
@@ -398,7 +398,7 @@ class _ProjectionChart extends StatelessWidget {
                 gridData: FlGridData(
                   show: true,
                   drawVerticalLine: false,
-                  getDrawingHorizontalLine: (value) => FlLine(
+                  getDrawingHorizontalLine: (value) => const FlLine(
                     color: AppColors.background,
                     strokeWidth: 1,
                   ),
@@ -502,11 +502,11 @@ class _WhatIfCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadow,
             blurRadius: 8,
-            offset: const Offset(0, 2),
+            offset: Offset(0, 2),
           ),
         ],
       ),

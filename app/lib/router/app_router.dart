@@ -10,6 +10,7 @@ import '../features/transactions/screens/transactions_screen.dart';
 import '../features/categories/screens/categories_screen.dart';
 import '../features/forecast/screens/forecast_screen.dart';
 import '../features/settings/screens/settings_screen.dart';
+import '../core/constants/app_colors.dart';
 
 // Route name constants
 class AppRoutes {
@@ -100,39 +101,58 @@ class _MainShellState extends State<MainShell> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: widget.child,
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _currentIndex,
-        onDestinationSelected: (index) {
-          setState(() => _currentIndex = index);
-          context.go(_routes[index]);
-        },
-        destinations: const [
-          NavigationDestination(
-            icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home),
-            label: 'Home',
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColors.navBackground,
+            borderRadius: BorderRadius.circular(36),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.15),
+                blurRadius: 20,
+                offset: const Offset(0, 4),
+              ),
+            ],
           ),
-          NavigationDestination(
-            icon: Icon(Icons.receipt_long_outlined),
-            selectedIcon: Icon(Icons.receipt_long),
-            label: 'Transactions',
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(36),
+          child: NavigationBar(
+            selectedIndex: _currentIndex,
+            onDestinationSelected: (index) {
+              setState(() => _currentIndex = index);
+              context.go(_routes[index]);
+            },
+            destinations: const [
+              NavigationDestination(
+                icon: Icon(Icons.home_outlined),
+                selectedIcon: Icon(Icons.home),
+                label: 'Home',
+              ),
+              NavigationDestination(
+                icon: Icon(Icons.receipt_long_outlined),
+                selectedIcon: Icon(Icons.receipt_long),
+                label: 'Transactions',
+              ),
+              NavigationDestination(
+                icon: Icon(Icons.donut_large_outlined),
+                selectedIcon: Icon(Icons.donut_large),
+                label: 'Categories',
+              ),
+              NavigationDestination(
+                icon: Icon(Icons.trending_up_outlined),
+                selectedIcon: Icon(Icons.trending_up),
+                label: 'Forecast',
+              ),
+              NavigationDestination(
+                icon: Icon(Icons.settings_outlined),
+                selectedIcon: Icon(Icons.settings),
+                label: 'Settings',
+              ),
+            ],
           ),
-          NavigationDestination(
-            icon: Icon(Icons.donut_large_outlined),
-            selectedIcon: Icon(Icons.donut_large),
-            label: 'Categories',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.trending_up_outlined),
-            selectedIcon: Icon(Icons.trending_up),
-            label: 'Forecast',
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.settings_outlined),
-            selectedIcon: Icon(Icons.settings),
-            label: 'Settings',
-          ),
-        ],
+        ),
+      ),
       ),
     );
   }

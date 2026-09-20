@@ -103,7 +103,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     value: _smsSync,
                     onChanged: (v) => setState(() => _smsSync = v),
                   ),
-                  Divider(height: 1, color: AppColors.background, indent: 56),
+                  const Divider(height: 1, color: AppColors.background, indent: 56),
                   _SettingsTile(
                     icon: Icons.sync_rounded,
                     iconColor: const Color(0xFF8BC4A0),
@@ -111,7 +111,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     subtitle: 'Last synced: Today 9:14 AM',
                     onTap: () {},
                   ),
-                  Divider(height: 1, color: AppColors.background, indent: 56),
+                  const Divider(height: 1, color: AppColors.background, indent: 56),
                   _SettingsToggleTile(
                     icon: Icons.notifications_none_rounded,
                     iconColor: const Color(0xFFFFB74D),
@@ -153,7 +153,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                     onTap: () => _showHowItWorks(context),
                     showChevron: true,
                   ),
-                  Divider(height: 1, color: AppColors.background, indent: 56),
+                  const Divider(height: 1, color: AppColors.background, indent: 56),
                   _SettingsTile(
                     icon: Icons.tag_rounded,
                     iconColor: AppColors.textSecondary,
@@ -215,21 +215,21 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             Text('How Tajirika AI works',
                 style: AppTextStyles.headingSmall),
             const SizedBox(height: 16),
-            _HowItWorksItem(
+            const _HowItWorksItem(
               icon: Icons.phone_android_outlined,
               title: 'Reads on your phone',
               body:
                   'Your M-Pesa messages are read and parsed directly on your device. Nothing leaves your phone unprocessed.',
             ),
             const SizedBox(height: 12),
-            _HowItWorksItem(
+            const _HowItWorksItem(
               icon: Icons.category_outlined,
               title: 'AI categorization',
               body:
                   'A machine learning model trained on Kenyan spending patterns assigns categories to each transaction.',
             ),
             const SizedBox(height: 12),
-            _HowItWorksItem(
+            const _HowItWorksItem(
               icon: Icons.trending_up_rounded,
               title: 'Forecasting',
               body:
@@ -308,11 +308,11 @@ class _SettingsSection extends StatelessWidget {
           decoration: BoxDecoration(
             color: AppColors.surface,
             borderRadius: BorderRadius.circular(16),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: AppColors.shadow,
                 blurRadius: 8,
-                offset: const Offset(0, 2),
+                offset: Offset(0, 2),
               ),
             ],
           ),
@@ -451,7 +451,7 @@ class _SettingsToggleTile extends StatelessWidget {
           Switch(
             value: value,
             onChanged: onChanged,
-            activeColor: AppColors.primary,
+            activeThumbColor: AppColors.primary,
             activeTrackColor: AppColors.primaryLight,
           ),
         ],

@@ -13,15 +13,18 @@ class TajirikaApp extends ConsumerWidget {
     final router = ref.watch(appRouterProvider);
 
     // Light status bar icons on mint background
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark,
-    ));
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+      ),
+    );
 
     return MaterialApp.router(
       title: 'Tajirika',
       debugShowCheckedModeBanner: false,
       routerConfig: router,
+
       theme: ThemeData(
         useMaterial3: true,
         textTheme: GoogleFonts.dmSansTextTheme(),
@@ -29,7 +32,6 @@ class TajirikaApp extends ConsumerWidget {
         colorScheme: const ColorScheme.light(
           primary: AppColors.primary,
           surface: AppColors.surface,
-          background: AppColors.background,
         ),
         cardTheme: CardThemeData(
           color: AppColors.surface,
@@ -39,11 +41,11 @@ class TajirikaApp extends ConsumerWidget {
           ),
         ),
         navigationBarTheme: NavigationBarThemeData(
-          backgroundColor: AppColors.navBackground,
+          backgroundColor: AppColors.transparent,
           indicatorColor: AppColors.primary.withOpacity(0.2),
-          height: 68,
-          iconTheme: MaterialStateProperty.resolveWith((states) {
-            if (states.contains(MaterialState.selected)) {
+          height: 64,         
+          iconTheme: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.selected)) {
               return const IconThemeData(
                 color: AppColors.navSelected,
                 size: 24,
@@ -54,8 +56,8 @@ class TajirikaApp extends ConsumerWidget {
               size: 24,
             );
           }),
-          labelTextStyle: MaterialStateProperty.resolveWith((states) {
-            if (states.contains(MaterialState.selected)) {
+          labelTextStyle: WidgetStateProperty.resolveWith((states) {
+            if (states.contains(WidgetState.selected)) {
               return const TextStyle(
                 color: AppColors.navSelected,
                 fontSize: 11,

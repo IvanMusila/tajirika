@@ -25,9 +25,10 @@ class AppColors {
   static const Color error = Color(0xFFEF5350);
 
   // Bottom nav
-  static const Color navBackground = Color(0xFF1A1A1A);
+  static const Color navBackground = Color(0xFFD4EDE0);
   static const Color navSelected = Color(0xFF8BC4A0);
-  static const Color navUnselected = Color(0xFF9E9E9E);
+  static const Color navUnselected = Color(0xFF000000);
+  static const Color transparent = Color(0x00000000);
 
   // PIN
   static const Color pinFilled = Color(0xFF8BC4A0);

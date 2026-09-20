@@ -34,7 +34,7 @@ class DashboardScreen extends StatelessWidget {
               const SizedBox(height: 20),
 
               // Categories
-              _SectionHeader(title: 'Spending breakdown'),
+              const _SectionHeader(title: 'Spending breakdown'),
               const SizedBox(height: 12),
               _CategoriesSection(),
 
@@ -46,7 +46,7 @@ class DashboardScreen extends StatelessWidget {
               const SizedBox(height: 20),
 
               // Recent transactions
-              _SectionHeader(
+              const _SectionHeader(
                 title: 'Recent transactions',
                 actionLabel: 'See all',
               ),
@@ -106,11 +106,11 @@ class _Header extends StatelessWidget {
           decoration: BoxDecoration(
             color: AppColors.surface,
             borderRadius: BorderRadius.circular(14),
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: AppColors.shadow,
                 blurRadius: 8,
-                offset: const Offset(0, 2),
+                offset: Offset(0, 2),
               ),
             ],
           ),
@@ -196,7 +196,7 @@ class _RunwayCard extends StatelessWidget {
           const SizedBox(height: 16),
           Row(
             children: [
-              _RunwayStatItem(
+              const _RunwayStatItem(
                 label: 'Balance',
                 value: 'Ksh 8,432',
               ),
@@ -206,7 +206,7 @@ class _RunwayCard extends StatelessWidget {
                 color: Colors.white24,
                 margin: const EdgeInsets.symmetric(horizontal: 20),
               ),
-              _RunwayStatItem(
+              const _RunwayStatItem(
                 label: 'Monthly spend',
                 value: 'Ksh 22,000',
               ),
@@ -261,11 +261,11 @@ class _SpendOverviewCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadow,
             blurRadius: 16,
-            offset: const Offset(0, 4),
+            offset: Offset(0, 4),
           ),
         ],
       ),
@@ -408,11 +408,11 @@ class _CategoriesSection extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadow,
             blurRadius: 16,
-            offset: const Offset(0, 4),
+            offset: Offset(0, 4),
           ),
         ],
       ),
@@ -587,11 +587,11 @@ class _RecentTransactions extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(20),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadow,
             blurRadius: 16,
-            offset: const Offset(0, 4),
+            offset: Offset(0, 4),
           ),
         ],
       ),
@@ -602,7 +602,7 @@ class _RecentTransactions extends StatelessWidget {
             children: [
               _TransactionRow(transaction: entry.value),
               if (!isLast)
-                Divider(
+                const Divider(
                   height: 1,
                   color: AppColors.background,
                   indent: 68,

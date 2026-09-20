@@ -21,7 +21,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       'amount': 4200,
       'percent': 0.29,
       'icon': Icons.restaurant_menu_outlined,
-      'color': Color(0xFF8BC4A0),
+      'color': const Color(0xFF8BC4A0),
       'transactions': 23,
       'trend': '+12%',
       'trendUp': true,
@@ -31,7 +31,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       'amount': 3000,
       'percent': 0.21,
       'icon': Icons.people_outline_rounded,
-      'color': Color(0xFFFFB74D),
+      'color': const Color(0xFFFFB74D),
       'transactions': 4,
       'trend': '0%',
       'trendUp': null,
@@ -41,7 +41,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       'amount': 2800,
       'percent': 0.19,
       'icon': Icons.directions_car_outlined,
-      'color': Color(0xFF64B5F6),
+      'color': const Color(0xFF64B5F6),
       'transactions': 31,
       'trend': '-5%',
       'trendUp': false,
@@ -51,7 +51,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       'amount': 1500,
       'percent': 0.10,
       'icon': Icons.bolt_outlined,
-      'color': Color(0xFFBA68C8),
+      'color': const Color(0xFFBA68C8),
       'transactions': 6,
       'trend': '+2%',
       'trendUp': true,
@@ -61,7 +61,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       'amount': 1750,
       'percent': 0.12,
       'icon': Icons.movie_outlined,
-      'color': Color(0xFFFF8A65),
+      'color': const Color(0xFFFF8A65),
       'transactions': 8,
       'trend': '+340%',
       'trendUp': true,
@@ -71,7 +71,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       'amount': 340,
       'percent': 0.02,
       'icon': Icons.visibility_off_outlined,
-      'color': Color(0xFF9E9E9E),
+      'color': const Color(0xFF9E9E9E),
       'transactions': 47,
       'trend': '+1%',
       'trendUp': true,
@@ -120,11 +120,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                             ? AppColors.primary
                             : AppColors.surface,
                         borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
+                        boxShadow: const [
                           BoxShadow(
                             color: AppColors.shadow,
                             blurRadius: 6,
-                            offset: const Offset(0, 2),
+                            offset: Offset(0, 2),
                           ),
                         ],
                       ),
@@ -152,11 +152,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 decoration: BoxDecoration(
                   color: AppColors.surface,
                   borderRadius: BorderRadius.circular(24),
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                       color: AppColors.shadow,
                       blurRadius: 16,
-                      offset: const Offset(0, 4),
+                      offset: Offset(0, 4),
                     ),
                   ],
                 ),
@@ -294,11 +294,11 @@ class _CategoryCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.surface,
         borderRadius: BorderRadius.circular(16),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.shadow,
             blurRadius: 8,
-            offset: const Offset(0, 2),
+            offset: Offset(0, 2),
           ),
         ],
       ),
