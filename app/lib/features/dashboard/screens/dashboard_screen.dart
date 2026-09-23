@@ -12,7 +12,7 @@ class DashboardScreen extends StatelessWidget {
       backgroundColor: AppColors.background,
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 100), // clears the pill
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

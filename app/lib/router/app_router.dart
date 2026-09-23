@@ -106,70 +106,72 @@ class _MainShellState extends State<MainShell> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true,
-      body: widget.child,
-      bottomNavigationBar: Container(
-        color: Colors.transparent,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 8, 16, 28),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(50),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
-              child: Container(
-                height: 64,
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.15),
-                  borderRadius: BorderRadius.circular(50),
-                  border: Border.all(
-                    color: Colors.white.withOpacity(0.2),
-                    width: 1,
+      body: Stack(
+        children: [
+          // Page content fills entire screen
+          widget.child,
+
+          // Pill floats at the bottom
+          Positioned(
+            bottom: 28,
+            left: 16,
+            right: 16,
+            child: Container(
+              height: 64,
+              decoration: BoxDecoration(
+                color: AppColors.navBackground,
+                borderRadius: BorderRadius.circular(50),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    blurRadius: 24,
+                    offset: const Offset(0, 4),
                   ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    _NavItem(
-                      icon: Icons.home_outlined,
-                      selectedIcon: Icons.home_rounded,
-                      label: 'Home',
-                      isSelected: _currentIndex == 0,
-                      onTap: () => _onTap(0),
-                    ),
-                    _NavItem(
-                      icon: Icons.receipt_long_outlined,
-                      selectedIcon: Icons.receipt_long_rounded,
-                      label: 'Transactions',
-                      isSelected: _currentIndex == 1,
-                      onTap: () => _onTap(1),
-                    ),
-                    _NavItem(
-                      icon: Icons.donut_large_outlined,
-                      selectedIcon: Icons.donut_large_rounded,
-                      label: 'Categories',
-                      isSelected: _currentIndex == 2,
-                      onTap: () => _onTap(2),
-                    ),
-                    _NavItem(
-                      icon: Icons.trending_up_outlined,
-                      selectedIcon: Icons.trending_up_rounded,
-                      label: 'Forecast',
-                      isSelected: _currentIndex == 3,
-                      onTap: () => _onTap(3),
-                    ),
-                    _NavItem(
-                      icon: Icons.settings_outlined,
-                      selectedIcon: Icons.settings_rounded,
-                      label: 'Settings',
-                      isSelected: _currentIndex == 4,
-                      onTap: () => _onTap(4),
-                    ),
-                  ],
-                ),
+                ],
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  _NavItem(
+                    icon: Icons.home_outlined,
+                    selectedIcon: Icons.home_rounded,
+                    label: 'Home',
+                    isSelected: _currentIndex == 0,
+                    onTap: () => _onTap(0),
+                  ),
+                  _NavItem(
+                    icon: Icons.receipt_long_outlined,
+                    selectedIcon: Icons.receipt_long_rounded,
+                    label: 'Transactions',
+                    isSelected: _currentIndex == 1,
+                    onTap: () => _onTap(1),
+                  ),
+                  _NavItem(
+                    icon: Icons.donut_large_outlined,
+                    selectedIcon: Icons.donut_large_rounded,
+                    label: 'Categories',
+                    isSelected: _currentIndex == 2,
+                    onTap: () => _onTap(2),
+                  ),
+                  _NavItem(
+                    icon: Icons.trending_up_outlined,
+                    selectedIcon: Icons.trending_up_rounded,
+                    label: 'Forecast',
+                    isSelected: _currentIndex == 3,
+                    onTap: () => _onTap(3),
+                  ),
+                  _NavItem(
+                    icon: Icons.settings_outlined,
+                    selectedIcon: Icons.settings_rounded,
+                    label: 'Settings',
+                    isSelected: _currentIndex == 4,
+                    onTap: () => _onTap(4),
+                  ),
+                ],
               ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -209,10 +211,10 @@ class _NavItem extends StatelessWidget {
           children: [
             Icon(
               isSelected ? selectedIcon : icon,
-              size: 18,
+              size: 20,
               color: isSelected
                   ? AppColors.primary
-                  : AppColors.textPrimary.withOpacity(0.5),
+                  : AppColors.navUnselected.withOpacity(0.8),
             ),
             AnimatedSize(
               duration: const Duration(milliseconds: 200),

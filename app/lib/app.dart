@@ -40,37 +40,6 @@ class TajirikaApp extends ConsumerWidget {
             borderRadius: BorderRadius.circular(36),
           ),
         ),
-        // navigationBarTheme: NavigationBarThemeData(
-        //   backgroundColor: Colors.transparent,
-        //   indicatorColor: AppColors.primary.withOpacity(0.15),
-        //   height: 60,
-        //   labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-        //   iconTheme: WidgetStateProperty.resolveWith((states) {
-        //     if (states.contains(WidgetState.selected)) {
-        //       return const IconThemeData(
-        //         color: AppColors.navSelected,
-        //         size: 24,
-        //       );
-        //     }
-        //     return const IconThemeData(
-        //       color: AppColors.navUnselected,
-        //       size: 22,
-        //     );
-        //   }),
-        //   labelTextStyle: WidgetStateProperty.resolveWith((states) {
-        //     if (states.contains(WidgetState.selected)) {
-        //       return const TextStyle(
-        //         color: AppColors.navSelected,
-        //         fontSize: 11,
-        //         fontWeight: FontWeight.w600,
-        //       );
-        //     }
-        //     return const TextStyle(
-        //       color: AppColors.navUnselected,
-        //       fontSize: 11,
-        //     );
-        //   }),
-        // ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.primary,
