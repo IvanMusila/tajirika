@@ -1,4 +1,4 @@
-name: tajirika
+name: Tajirika
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -35,20 +35,25 @@ dependencies:
   flutter_riverpod: ^2.5.1
   riverpod_annotation: ^2.3.5
   
+  # Navigation
+  go_router: ^13.2.0
+  
   # HTTP client
   dio: ^5.4.3
   
   # Charts
   fl_chart: ^0.67.0
   
-  # SMS (Android only)
-  telephony: ^0.2.0
+  flutter_sms_inbox: ^1.0.3   # reads SMS inbox history
+  permission_handler: ^11.3.0  # handles SMS permission
   
   # Local storage
   shared_preferences: ^2.2.3
   
   # JSON serialization
   json_annotation: ^4.9.0
+
+  google_fonts: ^6.2.1 
 
 dev_dependencies:
   flutter_test:
