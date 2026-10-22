@@ -87,7 +87,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       backgroundColor: AppColors.background,
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 100),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -308,7 +308,7 @@ class _CategoryCard extends StatelessWidget {
             width: 46,
             height: 46,
             decoration: BoxDecoration(
-              color: (category['color'] as Color).withOpacity(0.12),
+              color: (category['color'] as Color).withValues(alpha: 0.12),
               borderRadius: BorderRadius.circular(14),
             ),
             child: Icon(

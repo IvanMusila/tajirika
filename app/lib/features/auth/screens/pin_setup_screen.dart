@@ -140,7 +140,7 @@ class _PinSetupScreenState extends ConsumerState<PinSetupScreen> {
                       boxShadow: filled
                           ? [
                               BoxShadow(
-                                color: AppColors.primary.withOpacity(0.3),
+                                color: AppColors.primary.withValues(alpha: 0.3),
                                 blurRadius: 8,
                               )
                             ]
