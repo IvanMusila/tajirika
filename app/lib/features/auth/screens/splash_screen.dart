@@ -82,11 +82,11 @@ class _SplashScreenState extends State<SplashScreen>
                       ),
                     ],
                   ),
-                  // child: const Icon(
-                  //   Icons.trending_up_rounded,
-                  //   size: 52,
-                  //   color: Colors.white,
-                  // ),
+                  child: const Icon(
+                    Icons.trending_up_rounded,
+                    size: 52,
+                    color: Colors.white,
+                  ),
                 ),
                 const SizedBox(height: 24),
                 Text(
