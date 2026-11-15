@@ -238,7 +238,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
                       ),
                     )
                   : ListView.builder(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 100),
                       itemCount: _filtered.length,
                       itemBuilder: (context, index) {
                         final t = _filtered[index];
@@ -293,7 +293,7 @@ class _TransactionItem extends StatelessWidget {
             width: 46,
             height: 46,
             decoration: BoxDecoration(
-              color: (transaction['color'] as Color).withOpacity(0.12),
+              color: (transaction['color'] as Color).withValues(alpha: 0.12),
               borderRadius: BorderRadius.circular(14),
             ),
             child: Icon(
@@ -321,7 +321,7 @@ class _TransactionItem extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 8, vertical: 2),
                         decoration: BoxDecoration(
-                          color: AppColors.warning.withOpacity(0.15),
+                          color: AppColors.warning.withValues(alpha: 0.15),
                           borderRadius: BorderRadius.circular(6),
                         ),
                         child: Text(

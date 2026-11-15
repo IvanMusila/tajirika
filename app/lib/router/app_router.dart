@@ -119,11 +119,11 @@ class _MainShellState extends State<MainShell> {
             child: Container(
               height: 64,
               decoration: BoxDecoration(
-                color: AppColors.navBackground,
+                color: AppColors.navBackground.withValues(alpha: 0.85),
                 borderRadius: BorderRadius.circular(50),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
+                    color: Colors.black.withValues(alpha: 0.2),
                     blurRadius: 24,
                     offset: const Offset(0, 4),
                   ),
@@ -202,7 +202,7 @@ class _NavItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
         decoration: BoxDecoration(
           color: isSelected
-              ? AppColors.primary.withOpacity(0.2)
+              ? AppColors.primary.withValues(alpha: 0.2)
               : Colors.transparent,
           borderRadius: BorderRadius.circular(50),
         ),
@@ -214,7 +214,7 @@ class _NavItem extends StatelessWidget {
               size: 20,
               color: isSelected
                   ? AppColors.primary
-                  : AppColors.navUnselected.withOpacity(0.8),
+                  : AppColors.navUnselected.withValues(alpha: 0.8),
             ),
             AnimatedSize(
               duration: const Duration(milliseconds: 200),
@@ -225,7 +225,7 @@ class _NavItem extends StatelessWidget {
                         const SizedBox(width: 6),
                         Text(
                           label,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: AppColors.primary,
                             fontSize: 12,
                             fontWeight: FontWeight.w600,

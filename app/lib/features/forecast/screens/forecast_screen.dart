@@ -49,7 +49,7 @@ class _ForecastScreenState extends State<ForecastScreen> {
       backgroundColor: AppColors.background,
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20).copyWith(bottom: 100),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -167,7 +167,7 @@ class _RunwayForecastCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: AppColors.primary.withOpacity(0.35),
+            color: AppColors.primary.withValues(alpha: 0.35),
             blurRadius: 24,
             offset: const Offset(0, 8),
           ),
@@ -210,7 +210,7 @@ class _RunwayForecastCard extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(
                       horizontal: 12, vertical: 6),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
+                    color: Colors.white.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(
@@ -306,7 +306,7 @@ class _UpcomingBills extends StatelessWidget {
                       width: 42,
                       height: 42,
                       decoration: BoxDecoration(
-                        color: (bill['color'] as Color).withOpacity(0.12),
+                        color: (bill['color'] as Color).withValues(alpha: 0.12),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Icon(
@@ -445,7 +445,7 @@ class _ProjectionChart extends StatelessWidget {
                     dotData: const FlDotData(show: false),
                     belowBarData: BarAreaData(
                       show: true,
-                      color: AppColors.primary.withOpacity(0.08),
+                      color: AppColors.primary.withValues(alpha: 0.08),
                     ),
                   ),
                   // Projected (dashed)
@@ -457,7 +457,7 @@ class _ProjectionChart extends StatelessWidget {
                       FlSpot(28, 0),
                     ],
                     isCurved: true,
-                    color: AppColors.error.withOpacity(0.6),
+                    color: AppColors.error.withValues(alpha: 0.6),
                     barWidth: 2,
                     dashArray: [6, 4],
                     dotData: const FlDotData(show: false),
@@ -518,7 +518,7 @@ class _WhatIfCard extends StatelessWidget {
                 width: 38,
                 height: 38,
                 decoration: BoxDecoration(
-                  color: color.withOpacity(0.12),
+                  color: color.withValues(alpha: 0.12),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Icon(icon, color: color, size: 18),
@@ -566,7 +566,7 @@ class _WhatIfCard extends StatelessWidget {
               activeTrackColor: color,
               inactiveTrackColor: AppColors.background,
               thumbColor: color,
-              overlayColor: color.withOpacity(0.15),
+              overlayColor: color.withValues(alpha: 0.15),
               trackHeight: 4,
               thumbShape:
                   const RoundSliderThumbShape(enabledThumbRadius: 8),
@@ -596,7 +596,7 @@ class _SeasonalWarning extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.primaryLight,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.primary.withOpacity(0.3)),
+        border: Border.all(color: AppColors.primary.withValues(alpha: 0.3)),
       ),
       child: Row(
         children: [
@@ -604,7 +604,7 @@ class _SeasonalWarning extends StatelessWidget {
             width: 42,
             height: 42,
             decoration: BoxDecoration(
-              color: AppColors.primary.withOpacity(0.15),
+              color: AppColors.primary.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(12),
             ),
             child: const Icon(
