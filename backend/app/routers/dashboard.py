@@ -79,7 +79,7 @@ def get_dashboard(
 
     # ── 30-day category totals ─────────────────────────────────────────────
     cutoff_30 = df["timestamp"].max() - timedelta(days=30)
-    recent = df[df["timestamp"] >= cutoff_30 & df["is_debit"]]
+    recent = df[(df["timestamp"] >= cutoff_30) & (df["is_debit"] == True)]
     total_30d = float(recent["amount"].sum())
 
     cat_totals: list[CategoryTotal] = []
