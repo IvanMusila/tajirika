@@ -40,12 +40,13 @@ dependencies:
   
   # HTTP client
   dio: ^5.4.3
+  uuid: ^4.4.0
   
   # Charts
   fl_chart: ^0.67.0
   
-  flutter_sms_inbox: ^1.0.3   # reads SMS inbox history
-  permission_handler: ^11.3.0  # handles SMS permission
+  flutter_sms_inbox: ^1.0.4
+  permission_handler: ^11.3.1
   
   # Local storage
   shared_preferences: ^2.2.3
